@@ -41,17 +41,17 @@ class AddBuku : AppCompatActivity() {
                 }
             } else {
 
-                val title = etEditJudul.text.toString()
+                val judul = etEditJudul.text.toString()
                 val penulis = etEditPenulis.text.toString()
                 val jh_buku = etEditjh_buku.text.toString()
                 val th_terbit = etEditth_terbit.text.toString()
                 val penerbit = etEditpenerbit.text.toString()
 
-                val book = Buku(0, title, penulis, jh_buku, th_terbit, penerbit)
+                val book = Buku(0, judul, penulis, jh_buku, th_terbit, penerbit)
 
                 booksDao.insertBook(book)
 
-                Log.d("TAG", "Buku ditambahkan title: $title, penulis: $penulis")
+                Log.d("TAG", "Buku ditambahkan judul: $judul, penulis: $penulis")
 
                 Toast.makeText(this, "Buku tersimpan!!", Toast.LENGTH_SHORT).show()
 
