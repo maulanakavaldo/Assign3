@@ -18,10 +18,10 @@
         android:layout_marginLeft="5dp">
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvJudul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title"
+            android:hint="Judul Buku"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
         <LinearLayout
@@ -40,10 +40,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvAuthor"
+                android:id="@+id/tvPenulis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Author"
+                android:hint="Penulis"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
 

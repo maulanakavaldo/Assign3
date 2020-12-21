@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
         rvRecyclerViewBooks.adapter = BookAdapter(booksDao.getAllbuku(), this)
         rvRecyclerViewBooks.layoutManager = LinearLayoutManager(this)
         rvRecyclerViewBooks.setHasFixedSize(true)
-
     }
 
     private fun destroy() {
@@ -50,28 +49,26 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
         for (i in 0 until size) {
 
-            val book = Buku(i, "title $i", "author $i", "jh_halaman $i", "th_terbit", "penerbit")
+            val book = Buku(i, "judul $i", "penulis $i", "jh_halaman $i", "th_terbit", "penerbit")
             listOfBooks += book
 
         }
-
         return listOfBooks
-
     }
 
     override fun onClickedItem(buku: Buku) {
 
-        Intent(this, pilih_buku::class.java).also {
+        Intent(this, PilihBuku::class.java).also {
 
-            val title = buku.title
-            val author = buku.author
+            val judul = buku.judul
+            val penulis = buku.penulis
             val jh_buku = buku.jh_buku
             val th_terbit = buku.th_terbit
             val penerbit = buku.penerbit
             val id = buku.id
 
-            it.putExtra("EXTRA_TITLE", title)
-            it.putExtra("EXTRA_AUTHOR", author)
+            it.putExtra("EXTRA_JUDUL", judul)
+            it.putExtra("EXTRA_PENULIS", penulis)
             it.putExtra("EXTRA_JHBuku", jh_buku)
             it.putExtra("EXTRA_THTerbit", th_terbit)
             it.putExtra("EXTRA_Penerbit", penerbit)
@@ -79,7 +76,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
             startActivity(it)
         }
-        Log.d("MainAct", "title=${buku.title} author=${buku.author}")
+        Log.d("MainAct", "judul=${buku.judul} penulis=${buku.penulis}")
     }
-
 }

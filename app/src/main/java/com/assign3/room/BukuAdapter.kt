@@ -22,8 +22,8 @@ class BookAdapter(private val bukuList: List<Buku>, val itemClickListener: OnIte
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
 
         val currentItem = bukuList[position]
-        holder.title.text = currentItem.title
-        holder.author.text = currentItem.author
+        holder.judul.text = currentItem.judul
+        holder.penulis.text = currentItem.penulis
         holder.th_terbit.text = currentItem.th_terbit
         holder.penerbit.text = currentItem.penerbit
         holder.id.text = currentItem.id.toString()
@@ -36,16 +36,16 @@ class BookAdapter(private val bukuList: List<Buku>, val itemClickListener: OnIte
 
     class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val title: TextView = itemView.tvTitle
-        val author: TextView = itemView.tvAuthor
+        val judul: TextView = itemView.tvJudul
+        val penulis: TextView = itemView.tvPenulis
         val th_terbit: TextView = itemView.tvThTerbit
         val jh_buku: TextView = itemView.tvJumlahBuku
         val penerbit: TextView = itemView.tvPenerbit
         val id: TextView = itemView.tvId
 
         fun bind(buku: Buku, clickListener: OnItemClickListener) {
-            title.text = buku.title
-            author.text =  buku.author
+            judul.text = buku.judul
+            penulis.text =  buku.penulis
             th_terbit.text = buku.th_terbit
             jh_buku.text = buku.jh_buku
             penerbit.text =  buku.penerbit

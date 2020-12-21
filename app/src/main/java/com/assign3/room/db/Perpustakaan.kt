@@ -6,9 +6,7 @@ import androidx.room.RoomDatabase
 
 @Database(version = 1, entities = arrayOf(Buku::class))
 abstract class Perpustakaan : RoomDatabase() {
-
     abstract fun bookDao(): BukuDao
-
     companion object {
 
         private const val NAME = "Buku"
@@ -26,6 +24,5 @@ abstract class Perpustakaan : RoomDatabase() {
             }
             return INSTANCE as Perpustakaan
         }
-
     }
 }

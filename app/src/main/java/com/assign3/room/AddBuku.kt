@@ -28,30 +28,30 @@ class AddBuku : AppCompatActivity() {
 
         btnSaveBook.setOnClickListener {
 
-            if (etEditTitle.text.isNullOrEmpty() || etEditAuthor.text.isNullOrEmpty()) {
+            if (etEditJudul.text.isNullOrEmpty() || etEditPenulis.text.isNullOrEmpty()) {
                 when {
-                    etEditTitle.text.isNullOrEmpty() -> {
-                        etEditTitle.error = "Judul perlu diisi"
-                        etEditTitle.requestFocus()
+                    etEditJudul.text.isNullOrEmpty() -> {
+                        etEditJudul.error = "Judul perlu diisi"
+                        etEditJudul.requestFocus()
                     }
                     else -> {
-                        etEditAuthor.error = "Penulis perlu diisi"
-                        etEditAuthor.requestFocus()
+                        etEditPenulis.error = "Penulis perlu diisi"
+                        etEditPenulis.requestFocus()
                     }
                 }
             } else {
 
-                val title = etEditTitle.text.toString()
-                val author = etEditAuthor.text.toString()
+                val title = etEditJudul.text.toString()
+                val penulis = etEditPenulis.text.toString()
                 val jh_buku = etEditjh_buku.text.toString()
                 val th_terbit = etEditth_terbit.text.toString()
                 val penerbit = etEditpenerbit.text.toString()
 
-                val book = Buku(0, title, author, jh_buku, th_terbit, penerbit)
+                val book = Buku(0, title, penulis, jh_buku, th_terbit, penerbit)
 
                 booksDao.insertBook(book)
 
-                Log.d("TAG", "Buku ditambahkan title: $title, author: $author")
+                Log.d("TAG", "Buku ditambahkan title: $title, penulis: $penulis")
 
                 Toast.makeText(this, "Buku tersimpan!!", Toast.LENGTH_SHORT).show()
 

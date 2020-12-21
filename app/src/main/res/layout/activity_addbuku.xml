@@ -19,13 +19,13 @@
         android:layout_marginBottom="20dp"/>
 
     <EditText
-        android:id="@+id/etEditTitle"
+        android:id="@+id/etEditJudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Judul Buku" />
 
     <EditText
-        android:id="@+id/etEditAuthor"
+        android:id="@+id/etEditPenulis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Penulis"/>

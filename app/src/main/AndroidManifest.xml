@@ -10,9 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Room">
-        <activity android:name=".pilih_buku"></activity>
+        <activity android:name=".PilihBuku"></activity>
         <activity android:name=".AddBuku"></activity>
-<!--        <activity android:name=".DetailActivity"></activity>-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

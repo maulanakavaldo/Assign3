@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.assign3.room.db.Perpustakaan
 import kotlinx.android.synthetic.main.activity_pilih_buku.*
 
-class pilih_buku : AppCompatActivity() {
+class PilihBuku : AppCompatActivity() {
 
     private val booksDao = Perpustakaan.getInstance().bookDao()
 
@@ -25,43 +25,43 @@ class pilih_buku : AppCompatActivity() {
             finish()
         }
 
-        val title = intent.getStringExtra("EXTRA_TITLE")
-        val author = intent.getStringExtra("EXTRA_AUTHOR")
+        val judul = intent.getStringExtra("EXTRA_JUDUL")
+        val author = intent.getStringExtra("EXTRA_PENULIS")
         val jh_buku = intent.getStringExtra("EXTRA_JHBuku")
         val th_terbit = intent.getStringExtra("EXTRA_THTerbit")
         val penerbit = intent.getStringExtra("EXTRA_Penerbit")
         val id = intent.getIntExtra("EXTRA_ID", 0)
 
-        etEditTitle.setText(title)
-        etEditAuthor.setText(author)
+        etEditJudul.setText(judul)
+        etEditPenulis.setText(author)
         etEditjh_buku.setText(jh_buku)
         etEditth_terbit.setText(th_terbit)
         etEditpenerbit.setText(penerbit)
 
         btnUpdateSelectedBook.setOnClickListener {
 
-            if (etEditTitle.text.isNullOrEmpty() || etEditAuthor.text.isNullOrEmpty()) {
+            if (etEditJudul.text.isNullOrEmpty() || etEditPenulis.text.isNullOrEmpty()) {
                 when {
-                    etEditTitle.text.isNullOrEmpty() -> {
-                        etEditTitle.error = "Perlu diisi"
-                        etEditTitle.requestFocus()
+                    etEditJudul.text.isNullOrEmpty() -> {
+                        etEditJudul.error = "Perlu diisi"
+                        etEditJudul.requestFocus()
                     }
                     else -> {
-                        etEditAuthor.error = "Perlu diisi"
-                        etEditAuthor.requestFocus()
+                        etEditPenulis.error = "Perlu diisi"
+                        etEditPenulis.requestFocus()
                     }
                 }
             } else {
-                val updatedTitle = etEditTitle.text.toString()
-                val updatedAuthor = etEditAuthor.text.toString()
+                val updatedJudul = etEditJudul.text.toString()
+                val updatedPenulis = etEditPenulis.text.toString()
                 val updatedJH_Buku = etEditjh_buku.text.toString()
                 val updatedTH_Terbit= etEditth_terbit.text.toString()
                 val updatedPenerbit = etEditpenerbit.text.toString()
 
-                booksDao.updateBook(id, updatedTitle, updatedAuthor, updatedJH_Buku, updatedTH_Terbit, updatedPenerbit)
+                booksDao.updateBook(id, updatedJudul, updatedPenulis, updatedJH_Buku, updatedTH_Terbit, updatedPenerbit)
                 Toast.makeText(
                     this,
-                    "Buku diupdate $title to $updatedTitle",
+                    "Buku diupdate $judul to $updatedJudul",
                     Toast.LENGTH_SHORT
                 ).show()
                 Intent(this, MainActivity::class.java).apply {
@@ -72,7 +72,7 @@ class pilih_buku : AppCompatActivity() {
 
         btnDeleteSelectedBook.setOnClickListener {
             val alertDialogDelete = AlertDialog.Builder(this)
-            alertDialogDelete.setTitle("Hapus data?")
+            alertDialogDelete.setTitle("Hapus data")
             alertDialogDelete.setMessage("Apakah Anda ingin menghapusnya?")
             alertDialogDelete.setPositiveButton("Ya") { _, _ ->
                 booksDao.deleteByUserId(id)
@@ -83,7 +83,6 @@ class pilih_buku : AppCompatActivity() {
             alertDialogDelete.setNegativeButton("Tidak") { _, _ -> }
             alertDialogDelete.show()
         }
-
     }
 
 
